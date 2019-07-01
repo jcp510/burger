@@ -12,5 +12,35 @@ $(function() {
             name: $("#new-burger").val().trim(),
             devoured: false
         };
+
+        // Send POST request.
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(
+            function() {
+                console.log("Created new burger.");
+                // Reload page to display updated list.
+                location.reload();
+            }
+        );
+
     });
+
+    // Click handler for devour-it button.
+    $(".devour-it").on("click", function(event) {
+        var id = $(this).data("id");
+        var burgerState = {devoured: true};
+
+         // Send PUT request.
+        $.ajax("/api/burgers" + id, {
+            type: "PUT",
+            data: burgerState
+        }).then(function() {
+            console.log("This burger is devoured.");
+            // Reload page to display updated list.
+            location.reload();
+        });
+    });
+   
 });
