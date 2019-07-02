@@ -1,38 +1,43 @@
-<h1>Eat Da Burger!</h1>
-
-<div>
-    <img src="/assets/images/burger.jpg" class="img-fluid rounded" alt="eating a burger">
-</div>
-
-<!-- Form for submitting a new burger to be devoured. -->
-<form>
-  <div class="form-group">
-    <label for="burgerYouWantToEat">Enter A Burger You Want To Eat</label>
-    <input type="text" class="form-control" id="new-burger" placeholder="Burger you want to eat">
-  </div>
+<div class="container">
   
-  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-</form>
+  <div class="jumbotron">
+    <h1 class="display-4">Eat Da Burger!</h1>
+    <img src="/assets/images/burger.jpg" class="img-fluid rounded" alt="eating a burger">
+    <hr class="my-4">
+    <!-- Form for submitting a new burger to be devoured. -->
+    <form>
+      <div class="form-group">
+        <label for="burgerYouWantToEat">Enter A Burger You Want To Eat</label>
+        <input type="text" class="form-control" id="new-burger" placeholder="Burger you want to eat">
+      </div>
+      
+      <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+    </form>
+  </div>
 
-<!-- Div to display burgers ready to be devoured. -->
-<div id="burgers-ready">
-  <ul>
-    <!-- for burgers, see var hbsObject in router.get() in /controllers/burgers_controller.js. -->
-    {{#each burgers}}
-      {{#unless devoured}}
-        {{> burgers/burger-block}}
-      {{/unless}}
-    {{/each}}
-  </ul>
+  <!-- Div to display burgers ready to be devoured. -->
+  <div id="burgers-ready" class="col-6">
+    <ul class="list-group">
+      <!-- for burgers, see var hbsObject in router.get() in /controllers/burgers_controller.js. -->
+      {{#each burgers}}
+        {{#unless devoured}}
+          {{> burgers/burger-block}}
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <!-- Div to display devoured burgers. -->
+  <div id="devoured-burgers" class="col-6 float-right">
+    <ul class="list-group">
+      {{#each burgers}}
+        {{#if devoured}}
+          {{> burgers/devoured-block}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
 </div>
 
-<!-- Div to display devoured burgers. -->
-<div id="devoured-burgers">
-  <ul>
-    {{#each burgers}}
-      {{#if devoured}}
-        {{> burgers/devoured-block}}
-      {{/if}}
-    {{/each}}
-  </ul>
-</div>
+
+

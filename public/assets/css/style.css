@@ -1,4 +1,19 @@
 img {
-    width: 600 px;
-    height: 338 px;
+    width: 600px;
+    height: 338px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.jumbotron {
+    background: firebrick;
+}
+
+h1, label {
+    color: white;
 }
