@@ -27,4 +27,12 @@
 </div>
 
 <!-- Div to display devoured burgers. -->
-<div id="devoured-burgers"></div>
+<div id="devoured-burgers">
+  <ul>
+    {{#each burgers}}
+      {{#if devoured}}
+        {{> burgers/devoured-block}}
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
