@@ -10,7 +10,7 @@ var connection = require("../config/connection.js");
 function questionMarks(num) {
     var arr = [];
     
-    for (var i = 0; i < num.length; i++) {
+    for (var i = 0; i < num; i++) {
         arr.push("?");
     }
 
@@ -22,7 +22,7 @@ function objConverter(ob) {
     var arr = [];
 
     // Loop through keys, push key/value as string into arr.
-    for (key in ob) {
+    for (var key in ob) {
         var value = ob[key];
 
         // Check to skip hidden properties.

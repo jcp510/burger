@@ -5,12 +5,12 @@ $(function() {
     // Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will 
     // move to the right side of the page.
 
-    $("#submit").on("submit", function(event) {
+    $("#burger-form").on("submit", function(event) {
         event.preventDefault();
 
         var newBurger = {
-            name: $("#new-burger").val().trim(),
-            devoured: false
+            burger_name: $("#new-burger").val().trim(),
+            devoured: 0
         };
 
         // Send POST request.
@@ -33,7 +33,7 @@ $(function() {
         var burgerState = {devoured: true};
 
          // Send PUT request.
-        $.ajax("/api/burgers" + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: burgerState
         }).then(function() {
